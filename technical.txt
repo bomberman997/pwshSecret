@@ -1,0 +1,20 @@
+" - The best part is no moving part at all"
+
+If you read into best practices as to keeping your passwords or API keys/ secrets safe. 
+The best solutions suggested are password managers or management solutions such as Amazon:
+
+https://developers.amadeus.com/blog/best-practices-api-key-storage ///GUIDE ON WHAT TO DO WITH API KEYS
+
+https://aws.amazon.com/secrets-manager/ //Cloud solution for managing API keys
+
+In my first year in the industry I worked at length with internal staff and stake holders with Office 365 in depth. 
+Because of this signing into Office365 and executing the same set of specific task was a daily occurence 
+(Updating Calendar access, Mail routing rules, Mailbox sharing Etc)
+
+Powershell was able to empower me to excute these task seamlessly behind the scenes but 
+I needed a better solution to keep my API key safe after I connected to their GraphAPI via powershell
+
+Standard practice is to have keys loaded into envirnment variables through your OS and powershell proveds the perfect solution to make that happen!
+
+Thats how I made an encrypted a file with to store my keys not in use and load them into memory upon opening powershell window
+
