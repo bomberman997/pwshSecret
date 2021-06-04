@@ -50,4 +50,30 @@ Now we can login hands free and more secure then the classic text file!
 
 Connect-MsolService -Credential $creds
 
-Boom!
+Boom! We are in.
+
+However if we have a 3rd party API like Digital Ocean that needs an API key your going to need to load the string
+into in a different way
+
+Get-Credentials puts the username and password into an object which may not always be easily intergrated into your code or allow
+for ease of access with specific parties.
+
+What you can do is convert secure strings to plain text through .Net Framework as powershell
+allows direct calls to methods and classes from the .Net Framework you have installed. (Powershell is installed
+by default on most Windows computers.)
+
+$sString = convertto-securestring "Hunter2" -AsPlainText -Force
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sString)
+$unsecurePass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$unsecurePass
+
+Secure string to BSTR is converting the Powershell security object attribute password to a string ..
+somehting we can use!
+
+After this is all said and done
+
+echo $unsecurePass
+
+We now have our password in the environment!
+
+Best security practices say to wipe the variable once are finished with the contents inside
