@@ -65,7 +65,7 @@ by default on most Windows computers.)
 $sString = convertto-securestring "Hunter2" -AsPlainText -Force
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sString)
 $unsecurePass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-$unsecurePass
+echo $unsecurePass
 
 Secure string to BSTR is converting the Powershell security object attribute password to a string ..
 somehting we can use!
