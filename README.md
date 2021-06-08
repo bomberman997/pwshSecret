@@ -62,10 +62,17 @@ What you can do is convert secure strings to plain text through .Net Framework a
 allows direct calls to methods and classes from the .Net Framework you have installed. (Powershell is installed
 by default on most Windows computers.)
 
+
 $sString = convertto-securestring "Hunter2" -AsPlainText -Force
+
+
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sString)
+
 $unsecurePass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+
 echo $unsecurePass
+
+
 
 Secure string to BSTR is converting the Powershell security object attribute password to a string ..
 somehting we can use!
